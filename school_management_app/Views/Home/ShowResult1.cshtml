@@ -1,0 +1,146 @@
+﻿@model school_management_app.Models.ShowResultModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowResult1</title>
+
+    <style>
+        /* Container style */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header style */
+        h4 {
+            font-size: 28px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Section style */
+        .section {
+            background-color: palevioletred;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        /* Table style */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Action links style */
+        .action-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+            .action-links a {
+                margin: 0 10px;
+                text-decoration: none;
+                padding: 12px 20px;
+                border-radius: 5px;
+                background-color: #007bff;
+                color: white;
+                font-weight: bold;
+                transition: background-color 0.3s ease;
+            }
+
+                .action-links a:hover {
+                    background-color: #0056b3;
+                }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h4>ShowResultModel</h4>
+
+        <div class="section">
+            <h5>Roll Number</h5>  
+            <p>@Html.DisplayFor(model => model.RollNumber)</p>
+
+
+
+
+            <h5>Name</h5>
+            <p>@Html.DisplayFor(model => model.Name)</p>
+
+
+
+            <h5>Course</h5>
+            <p>@Html.DisplayFor(model => model.Course)</p>
+        </div>
+
+        <table>
+            <tr>
+                <th>Property</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Math</td>
+                <td>@Html.DisplayFor(model => model.Math)</td>
+            </tr>
+            <tr>
+                <td>Hindi</td>
+                <td>@Html.DisplayFor(model => model.Hindi)</td>
+            </tr>
+            <tr>
+                <td>English</td>
+                <td>@Html.DisplayFor(model => model.English)</td>
+            </tr>
+            <tr>
+                <td>Gramer</td>
+                <td>@Html.DisplayFor(model => model.Gramer)</td>
+            </tr>
+            <tr>
+                <td>Social Science</td>
+                <td>@Html.DisplayFor(model => model.SocialScience)</td>
+            </tr>
+            <td>Total</td>
+            <td>
+                @{
+                    var total = Convert.ToInt32(Model.Math) + Convert.ToInt32(Model.Hindi) + Convert.ToInt32(Model.English) + Convert.ToInt32(Model.Gramer) + Convert.ToInt32(Model.SocialScience);
+                    @total
+                }
+                
+        </table>
+    </div>
+
+    <div class="action-links">
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ })
+        |
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>
